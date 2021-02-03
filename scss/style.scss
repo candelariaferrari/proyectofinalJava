@@ -1,0 +1,35 @@
+@import "./colors";
+
+/* Menu */
+nav.bkgNav.navbar.fixed-top{
+    background-color: $azulOscuro;
+    padding: 1rem 2.5rem;
+}
+.navbar-brand{
+    color: $naranja;
+}
+.nav-link {
+    color: $blanco;
+    border-bottom: 1px solid $azulOscuro;
+
+    &:hover {
+        color: $naranja;
+        border-bottom: 1px solid $cyan;
+    }
+}
+/* Cabecera */ 
+.cabecera {
+    background-color: $azulOscuro;
+    height: 100vh;
+    color: $blanco;
+    .cBtn{
+        padding-top: 50vh;
+        display: flex;
+        justify-content: center;
+        .btn {
+            border-color: $naranja;
+            color: $naranja;
+            padding: 15px;
+        }
+    }
+}

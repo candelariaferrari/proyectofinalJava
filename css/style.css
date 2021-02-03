@@ -1,0 +1,28 @@
+/* Menu */
+nav.bkgNav.navbar.fixed-top {
+  background-color: #071526;
+  padding: 1rem 2.5rem; }
+
+.navbar-brand {
+  color: #F28705; }
+
+.nav-link {
+  color: #ffffff;
+  border-bottom: 1px solid #071526; }
+  .nav-link:hover {
+    color: #F28705;
+    border-bottom: 1px solid #23B7D9; }
+
+/* Cabecera */
+.cabecera {
+  background-color: #071526;
+  height: 100vh;
+  color: #ffffff; }
+  .cabecera .cBtn {
+    padding-top: 50vh;
+    display: flex;
+    justify-content: center; }
+    .cabecera .cBtn .btn {
+      border-color: #F28705;
+      color: #F28705;
+      padding: 15px; }
