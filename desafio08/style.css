@@ -1,0 +1,24 @@
+.contentProduct {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    width: 50vw;
+    padding: 5px;  
+}
+
+.categoria {
+    color: black;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+.nombre{
+    font-size: 1.5rem;
+    color: orange;
+    margin-right: 15px;
+}
+.precio {
+    font-size: 1.5rem;
+    color: blue;
+    margin-right: 15px;  
+}

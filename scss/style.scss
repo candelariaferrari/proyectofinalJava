@@ -33,3 +33,184 @@ nav.bkgNav.navbar.fixed-top{
         }
     }
 }
+/* nosotros */ 
+.cNosotros{
+    margin-top: 5rem;
+    background-color: $naranja;
+    height: 60vh;
+    h1 {
+        color: $azulOscuro;
+        text-align: center;
+        padding: 3rem 0rem;
+        text-transform: uppercase;
+    }
+    p{
+        color: $blanco;
+        margin-left: 5rem;
+    }
+    .circulo{
+        background-color: $blanco;
+        height: 100px;
+        width: 100px;
+        border-radius: 20px;
+        margin-left: 10rem;
+        margin-bottom:1rem;
+    }
+}
+
+/* servicios */
+.bkgColor{
+    background-color: $cyan !important;
+}
+.service-icon {
+    background-color: $blanco;
+    color: $cyan;
+    height: 7rem;
+    width: 7rem;
+    display: block;
+    line-height: 7.5rem;
+    font-size: 2.25rem;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+
+/* trabajos */ 
+.content-section{
+ height: 90vh;
+ padding-top: 5rem;
+ h1{
+     color: $cyan;
+ }
+}
+.portfolio-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    max-width: 530px;
+    height: 15rem;
+    margin: auto auto 1rem;
+    .caption {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      background-color: fade-out($naranja, 0.10);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      .caption-content {
+        color: $blanco;
+        margin: auto 2rem 2rem;
+        h2 {
+          font-size: 0.8rem;
+          text-transform: uppercase;
+        }
+        p {
+          font-weight: 300;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    @media(min-width: 992px) {
+      max-width: none;
+      margin: 0;
+      .caption {
+        transition: clip-path 0.25s ease-out, background-color 0.7s;
+        clip-path: inset(0px);
+        .caption-content {
+          transition: opacity 0.25s;
+          margin-left: 5rem;
+          margin-right: 5rem;
+          margin-bottom: 5rem;
+        }
+      }
+      img {
+        transition: clip-path 0.25s ease-out;
+        clip-path: inset(-1px);
+      }
+      &:hover {
+        img {
+          clip-path: inset(2rem);
+        }
+        .caption {
+          background-color: fade-out($cyan, 0.1);
+          clip-path: inset(2rem);
+        }
+      }
+    }
+  }
+  
+/* Paquetes */ 
+.cPaquetes {
+    height: 50vh;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    border-left: 5px solid $cyan;
+    border-right: 5px solid $cyan;
+    h1 {
+        color: $naranja;
+        text-align: center;
+    }
+    .cBtn {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+        .btn {
+            background-color: $naranja;
+            color: $blanco;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 0rem 1.5rem;
+        } 
+    }
+    
+}
+
+.card-group {
+    padding: 20px 50px;
+    .card{
+        text-align: center;
+        background-color: $azulOscuro;
+        margin: 2rem;
+        .card-title{
+            color: $naranja;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            padding-bottom: 2rem;
+        }
+        .card-text{
+            color: $blanco;
+            padding-bottom: 2rem;
+        }
+        .btn {
+            background-color: $naranja;
+            color: $blanco;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 0rem 1.5rem;
+        }
+    }
+}
+/* Contacto */
+.cContact {
+    background-color: $cyan;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    h1 {
+        color: $blanco;
+        text-align: center;
+        padding: 3rem 0rem;
+        text-transform: uppercase;
+    }
+    form {
+        padding: 0rem 3rem 5rem 3rem;
+        color: $blanco;
+        .btn {
+            background-color: $naranja;
+            color: $blanco;
+            padding: 1rem 5rem;
+            font-size: 1rem;
+            float: right;
+        }
+    }
+}

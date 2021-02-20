@@ -26,3 +26,153 @@ nav.bkgNav.navbar.fixed-top {
       border-color: #F28705;
       color: #F28705;
       padding: 15px; }
+
+/* nosotros */
+.cNosotros {
+  margin-top: 5rem;
+  background-color: #F28705;
+  height: 60vh; }
+  .cNosotros h1 {
+    color: #071526;
+    text-align: center;
+    padding: 3rem 0rem;
+    text-transform: uppercase; }
+  .cNosotros p {
+    color: #ffffff;
+    margin-left: 5rem; }
+  .cNosotros .circulo {
+    background-color: #ffffff;
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    margin-left: 10rem;
+    margin-bottom: 1rem; }
+
+/* servicios */
+.bkgColor {
+  background-color: #23B7D9 !important; }
+
+.service-icon {
+  background-color: #ffffff;
+  color: #23B7D9;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1); }
+
+/* trabajos */
+.content-section {
+  height: 90vh;
+  padding-top: 5rem; }
+  .content-section h1 {
+    color: #23B7D9; }
+
+.portfolio-item {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  max-width: 530px;
+  height: 15rem;
+  margin: auto auto 1rem; }
+  .portfolio-item .caption {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(242, 135, 5, 0.9);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1; }
+    .portfolio-item .caption .caption-content {
+      color: #ffffff;
+      margin: auto 2rem 2rem; }
+      .portfolio-item .caption .caption-content h2 {
+        font-size: 0.8rem;
+        text-transform: uppercase; }
+      .portfolio-item .caption .caption-content p {
+        font-weight: 300;
+        font-size: 1.2rem; }
+  @media (min-width: 992px) {
+    .portfolio-item {
+      max-width: none;
+      margin: 0; }
+      .portfolio-item .caption {
+        transition: clip-path 0.25s ease-out, background-color 0.7s;
+        clip-path: inset(0px); }
+        .portfolio-item .caption .caption-content {
+          transition: opacity 0.25s;
+          margin-left: 5rem;
+          margin-right: 5rem;
+          margin-bottom: 5rem; }
+      .portfolio-item img {
+        transition: clip-path 0.25s ease-out;
+        clip-path: inset(-1px); }
+      .portfolio-item:hover img {
+        clip-path: inset(2rem); }
+      .portfolio-item:hover .caption {
+        background-color: rgba(35, 183, 217, 0.9);
+        clip-path: inset(2rem); } }
+
+/* Paquetes */
+.cPaquetes {
+  height: 50vh;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  border-left: 5px solid #23B7D9;
+  border-right: 5px solid #23B7D9; }
+  .cPaquetes h1 {
+    color: #F28705;
+    text-align: center; }
+  .cPaquetes .cBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem; }
+    .cPaquetes .cBtn .btn {
+      background-color: #F28705;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 0rem 1.5rem; }
+
+.card-group {
+  padding: 20px 50px; }
+  .card-group .card {
+    text-align: center;
+    background-color: #071526;
+    margin: 2rem; }
+    .card-group .card .card-title {
+      color: #F28705;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      padding-bottom: 2rem; }
+    .card-group .card .card-text {
+      color: #ffffff;
+      padding-bottom: 2rem; }
+    .card-group .card .btn {
+      background-color: #F28705;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 0rem 1.5rem; }
+
+/* Contacto */
+.cContact {
+  background-color: #23B7D9;
+  margin-top: 5rem;
+  margin-bottom: 5rem; }
+  .cContact h1 {
+    color: #ffffff;
+    text-align: center;
+    padding: 3rem 0rem;
+    text-transform: uppercase; }
+  .cContact form {
+    padding: 0rem 3rem 5rem 3rem;
+    color: #ffffff; }
+    .cContact form .btn {
+      background-color: #F28705;
+      color: #ffffff;
+      padding: 1rem 5rem;
+      font-size: 1rem;
+      float: right; }
