@@ -1,24 +1,29 @@
-.contentProduct {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    align-items: center;
-    width: 50vw;
-    padding: 5px;  
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 10;
 }
+/* .contentProduct {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100vw;
+    padding: 1rem;  
+}  */
 
 .categoria {
     color: black;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-right: 15px;
 }
 .nombre{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: orange;
     margin-right: 15px;
 }
 .precio {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: blue;
     margin-right: 15px;  
 }
