@@ -17,7 +17,7 @@ miBoton.addEventListener(eventoNombre, ()=>{
 })
 console.dir(miBoton);*/
 
-/* let  formulario = document.getElementById("pruebaFormulario");
+ /*let  formulario = document.getElementById("pruebaFormulario");
 formulario.onsubmit = (event) => {
     event.preventDefault (); // evita el comportamiento por defecto del form de "volver a cargar la pag"
     // para enviar la info del formulario 
@@ -37,6 +37,7 @@ class Producto{
         this.id     = datosProductos.id;
         this.nombre = datosProductos.nombre;
         this.precio = parseFloat(datosProductos.precio);
+        this.encarrito = datosProductos.encarrito;
     }
 
     descuento(agregado){
@@ -48,14 +49,13 @@ let   productosSeleccionados = [];
 const PREFIJO                = "productoID";
 
 let padre = document.getElementById("contenedorProductos");
-for(let dato of datosProductos){
-    crearElemento(dato);
+this.cargarProductos();
 
-}
-
+let carrito = document.getElementById("productosCargados");
 
 // funcion para crear un elemento del dom 
 function crearElemento(dato){
+    
     let nuevoElemento = document.createElement("div");
     nuevoElemento.id        = PREFIJO + dato.id;
     nuevoElemento.innerHTML = `<h3 class="nombre"> ${dato.nombre}</h3>
@@ -65,7 +65,56 @@ function crearElemento(dato){
     padre.appendChild(nuevoElemento);
     let boton = document.getElementById(dato.nombre);
     boton.onclick = () => { // para que se vea el nombre del producto " comprado "
+        dato.encarrito = true;
+        dato.cantidad = dato.cantidad + 1;
+        this.cargarCarrito();
         console.log("Producto agregado " + dato.nombre + "\nCategoria: " +dato.nombre);
     };
 
+}
+
+
+function cargarProductos(){
+    for(let dato of datosProductos){
+        if (dato.encarrito == false){
+            crearElemento(dato);
+        }
+    }
+}
+function crearCarrito(dato){
+    
+    let nuevoElementoCarrito = document.createElement("div");
+    nuevoElementoCarrito.id        = PREFIJO + dato.id;
+    nuevoElementoCarrito.innerHTML = `<h3> ${dato.nombre}</h3>
+                              <h4>${dato.precio}</h4>
+                              <h5>${dato.cantidad}</h5>
+                              <button id="${dato.id}" class="btnEliminar" > Elimnar producto </button>`;
+
+    carrito.appendChild(nuevoElementoCarrito);
+    let boton = document.getElementById(dato.id);
+    boton.onclick = () => { // para que se vea el nombre del producto " comprado "
+        dato.encarrito = false;
+        dato.cantidad = 0;
+        console.log("Producto eliminado " + dato.nombre + "\nCategoria: " +dato.nombre);
+    };
+
+}
+function cargarCarrito(){
+    for(let dato of datosProductos){
+        if (dato.encarrito == true){
+            if (carrito.hasChildNodes()){
+                var children = carrito.children;
+                console.log(children);
+                while (carrito.firstChild){
+                    //console.log(carrito.firstChild.nodeName);
+                    carrito.removeChild(carrito.firstChild);
+
+                }
+                /* for ( var i = 0, i <= children.length, i++){
+
+                } */
+            }
+            crearCarrito(dato);
+        }
+    }
 }
