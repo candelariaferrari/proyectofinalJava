@@ -60,11 +60,12 @@ function crearElemento(dato){
     nuevoElemento.id        = PREFIJO + dato.id;
     nuevoElemento.innerHTML = `<h3 class="nombre"> ${dato.nombre}</h3>
                               <h4>${dato.precio}</h4>
-                              <button id="${dato.nombre}"> comprar </button>`;
+                              <button id="${dato.nombre}" class="btnAgregar" > Agregar al carrito </button>`;
 
     padre.appendChild(nuevoElemento);
     let boton = document.getElementById(dato.nombre);
     boton.onclick = () => { // para que se vea el nombre del producto " comprado "
-        alert ("producto vendido " + dato.nombre)
+        console.log("Producto agregado " + dato.nombre);
     };
+
 }

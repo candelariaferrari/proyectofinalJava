@@ -3,14 +3,15 @@
     padding: 0;
     margin: 10;
 }
-/* .contentProduct {
+.contentProduct {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: flex-start;
+    flex-wrap: wrap;
     width: 100vw;
     padding: 1rem;  
-}  */
+} 
 
 .categoria {
     color: black;
@@ -26,4 +27,17 @@
     font-size: 1rem;
     color: blue;
     margin-right: 15px;  
+}
+
+.btnAgregar {
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 1px solid orange;
+    border-radius: 15px;
+    color: black;
+    font-weight: 600;
+}
+.btnAgregar:hover{
+    background-color: orange;
+    color: white;
 }
