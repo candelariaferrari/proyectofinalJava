@@ -65,7 +65,7 @@ function crearElemento(dato){
     padre.appendChild(nuevoElemento);
     let boton = document.getElementById(dato.nombre);
     boton.onclick = () => { // para que se vea el nombre del producto " comprado "
-        console.log("Producto agregado " + dato.nombre);
+        console.log("Producto agregado " + dato.nombre + "\nCategoria: " +dato.nombre);
     };
 
 }
