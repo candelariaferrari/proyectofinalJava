@@ -1,67 +1,145 @@
-class Producto{
-    constructor(datosProductos){
-        this.id     = datosProductos.id;
-        this.nombre = datosProductos.nombre;
-        this.precio = parseFloat(datosProductos.precio);
+class productoPack {
+    constructor(datosPacks) {
+        this.id = datosPacks.id;
+        this.nombre = datosPacks.nombre;
+        this.precio = parseFloat(datosPacks.precio);
     }
+}
+let carritoPack = []; // para la funcion carrito
+let padrePack = document.getElementById("contenedorPacks"); // contenedor de pack
+let carritopackHtml = document.getElementById("packsCargados"); // contendor de futura lista creada del carrito
+// funcion para crear un elemento del dom 
+function crearElementoPack() {
+    datosPacks.forEach(pack => { // para crear cada pack 
+        let nodo = document.createElement('div')
+        nodo.innerHTML =    `<h3 class="nombreP"> ${pack.nombre}</h3>
+                            <h4 class="precioP">${pack.precio}</h4>
+                            <button id="${pack.nombre}" onclick="addToCart(${datosPacks.indexOf(pack)})" class="btnAgregarP"> Agregar al carrito </button>`;
+        padrePack.appendChild(nodo);                       // para saber que index es
+    })
+}
+crearElementoPack();
 
-    descuento(agregado){
+function addToCart(index) { // funcion para el push carrito y sumar la cantidad 
+    let pack = datosPacks[index];
+    if (carritoPack.length > 0) {
+        let noExiste = true;
+        for (let i = 0; i < carritoPack.length; i++) { //si no se agrega
+            if (pack.nombre === carritoPack[i].nombre) {
+                carritoPack[i].cantidad++;
+                noExiste = false;
+            }
+        }
+        if (noExiste) { //si se agrega (.push)
+            pack.cantidad = 1;
+            carritoPack.push(pack);
+        }
+    } else {
+        pack.cantidad = 1;
+        carritoPack.push(pack)
+    }
+    renderCarritoPack();
+}
+//FUNCION RENDERIZAR CARRITO (GRAFICAR EL ARRAY)
+function renderCarritoPack() {
+    carritopackHtml.innerHTML = '';
+    if (carritoPack.length > 0) {
+        carritoPack.forEach(pack => {
+            carritopackHtml.innerHTML += `
+            <div>
+            <h3 class="nombreP"> ${pack.nombre}</h3>
+            <h4 class="precioP">${pack.precio * pack.cantidad}</h4>
+            <h5>${pack.cantidad}</h5>
+            <button id="${pack.nombre}" class="btnAgregarP" type="button" onclick='borradoDePack(${carritoPack.indexOf(pack)})'>Elimnar producto</button>
+            </div>
+            `
+        })
+    }
+}
+// PARA BORRAR (borra de a uno y cuando llega a cero lo quita de la lista)
+function borradoDePack(index) {
+    carritoPack[index].cantidad = carritoPack[index].cantidad - 1;
+    if (carritoPack[index].cantidad <= 0) {
+        carritoPack.splice(index, 1)
+    }
+    renderCarritoPack();
+}
+
+
+
+
+
+
+
+
+
+/* class Producto {
+    constructor(datosPacks) {
+        this.id = datosPacks.id;
+        this.nombre = datosPacks.nombre;
+        this.precio = parseFloat(datosPacks.precio);
+        // this.encarrito = datosPacks.encarrito;
+    }
+    descuento(agregado) {
         this.precio -= agregado;
     }
 }
-class Empleados{ //DESAFIO  COMPLEMENTARIO 
-    constructor(dEmpleados){
-        this.id     = dEmpleados.id;
-        this.puesto = dEmpleados.puesto;
+let carrito = []; // para la funcion carrito
+let padrePack = document.getElementById("contenedorProductos"); // contenedor de pack
+let carritopackHtml = document.getElementById("productosCargados"); // contendor de futura lista creada del carrito
+// funcion para crear un elemento del dom 
+function crearElemento() {
+    datosPacks.forEach(producto => { // para crear cada pack 
+        let nodo = document.createElement('div')
+        nodo.innerHTML = `<h3 class="nombre"> ${producto.nombre}</h3>
+        <h4>${producto.precio}</h4>
+        <button id="${producto.nombre}" onclick="addToCart(${datosPacks.indexOf(producto)})" class="btnAgregar"> Agregar al carrito </button>`;
+        padrePack.appendChild(nodo);                       // para saber que index es
+    })
+}
+crearElementoPack();
+
+function addToCart(index) { // funcion para el push carrito y sumar la cantidad 
+    let producto = datosPacks[index];
+    if (carrito.length > 0) {
+        let noExiste = true;
+        for (let i = 0; i < carrito.length; i++) { //si no se agrega
+            if (producto.nombre === carrito[i].nombre) {
+                carrito[i].cantidad++;
+                noExiste = false;
+            }
+        }
+        if (noExiste) { //si se agrega (.push)
+            producto.cantidad = 1;
+            carrito.push(producto);
+        }
+    } else {
+        producto.cantidad = 1;
+        carrito.push(producto)
+    }
+    renderCarrito();
+}
+//FUNCION RENDERIZAR CARRITO (GRAFICAR EL ARRAY)
+function renderCarrito() {
+    carritopackHtml.innerHTML = '';
+    if (carrito.length > 0) {
+        carrito.forEach(producto => {
+            carritopackHtml.innerHTML += `
+            <div>
+            <h3 class="nombre"> ${producto.nombre}</h3>
+            <h4>${producto.precio}</h4>
+            <h5>${producto.cantidad}</h5>
+            <button id="${producto.nombre}" class="btnAgregar" type="button" onclick='borradoDeProducto(${carrito.indexOf(producto)})'>Elimnar producto</button>
+            </div>
+            `
+        })
     }
 }
-
-let   productosSeleccionados = [];
-let carrito = [];
-const PREFIJO  = "productoID";
-const PREFIJOempleados  = "dempleadosID";
-
-let padre = document.getElementById("contenedorProductos");
-let cCarrito = document.getElementById("productosCargados");
-let padreEmpleados = document.getElementById("contenedorEmpleados"); //desafio complementario
-
-for(let dato of datosProductos){
-    crearElemento(dato);
-
-}
-
-for(let empleado of dEmpleados){ //DESAFIO  COMPLEMENTARIO 
-    crearElementoEmpleado(empleado);
-} 
-
- // funcion para crear un elemento del dom 
-function crearElemento(dato){
-    let nuevoElemento = document.createElement("div");
-    nuevoElemento.id        = PREFIJO + dato.id;
-    nuevoElemento.innerHTML = `<h3 class="nombre"> ${dato.nombre}</h3>
-                              <h4>${dato.precio}</h4>
-                              <button id="${dato.nombre}"  class="btnAgregar" > Agregar al carrito </button>`;
-
-    padre.appendChild(nuevoElemento);
-    let boton = document.getElementById(dato.nombre);
-    boton.onclick = () => { // para que se vea el nombre del producto " comprado "
-        carrito.push(crearElemento(dato))
-        cCarrito.appendChild(nuevoElemento)
-        console.log("Producto agregado " + dato.nombre + "\nCategoria: " +dato.id);
-    };
-
-} 
-  
-
-
-/* DESAFIO COMPLEMENTARIO */
-
-function crearElementoEmpleado(empleado){
-    let nuevoElementoE = document.createElement("div");
-    nuevoElementoE.id        =  PREFIJOempleados + empleado.id;
-    nuevoElementoE.innerHTML = `<h3 class="empleado"> ${empleado.id}</h3>
-                              <div>${empleado.puesto}</div>`;
-
-    padreEmpleados.appendChild(nuevoElementoE);
-
-} 
+// PARA BORRAR (borra de a uno y cuando llega a cero lo quita de la lista)
+function borradoDeProducto(index) {
+    carrito[index].cantidad = carrito[index].cantidad - 1;
+    if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1)
+    }
+    renderCarrito();
+} */

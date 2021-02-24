@@ -51,8 +51,8 @@
     border-radius: 20px;
     border: 1px solid orange;
     height: 50vh;
-    width: 60vw;
-    margin-left: 15em;
+    width: 80vw;
+    margin-left: 10em;
     margin-top: 3em;
     padding: 2em;
 }
@@ -114,6 +114,49 @@ button:hover.btnEliminar {
     color: 1px solid rgb(251, 176, 0);
 }
 
+/* PACKS */ 
+#contenedorPacks {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100vw;
+    padding: 1rem;  
+} 
+.nombreP{
+    font-size: 1.2rem;
+    color: BLUE;
+    margin-right: 15px;
+}
+.precioP {
+    font-size: 1rem;
+    color: rgb(53, 53, 58);
+    margin-right: 15px;  
+}
+
+.btnAgregarP {
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 1px solid BLUE;
+    border-radius: 15px;
+    color: black;
+    font-weight: 600;
+}
+#packsCargados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    border: 1px solid blue;
+    height: 50vh;
+    width: 60vw;
+    margin-left: 15em;
+    margin-top: 3em;
+    padding: 2em;
+}
 /* DESAFIO COMPLEMENTARIO */ 
 #contenedorEmpleados{
     margin-top: 3em;
