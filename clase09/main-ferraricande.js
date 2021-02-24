@@ -35,24 +35,31 @@ formulario.onsubmit = (event) => {
 class Producto{
     constructor(datosProductos){
         this.id     = datosProductos.id;
+        this.categoria     = datosProductos.categoria;
         this.nombre = datosProductos.nombre;
         this.precio = parseFloat(datosProductos.precio);
         this.encarrito = datosProductos.encarrito;
     }
-
-    descuento(agregado){
-        this.precio -= agregado;
+}
+class Empleados{ //DESAFIO  COMPLEMENTARIO 
+    constructor(dEmpleados){
+        this.id     = dEmpleados.id;
+        this.puesto = dEmpleados.puesto;
     }
 }
-
 let   productosSeleccionados = [];
 const PREFIJO                = "productoID";
+const PREFIJOempleados  = "dempleadosID"; //DESAFIO  COMPLEMENTARIO 
 
 let padre = document.getElementById("contenedorProductos");
 this.cargarProductos();
 
 let carrito = document.getElementById("productosCargados");
+let padreEmpleados = document.getElementById("contenedorEmpleados"); //desafio complementario
 
+for(let empleado of dEmpleados){ //DESAFIO  COMPLEMENTARIO 
+    crearElementoEmpleado(empleado);
+}
 // funcion para crear un elemento del dom 
 function crearElemento(dato){
     
@@ -68,13 +75,14 @@ function crearElemento(dato){
         dato.encarrito = true;
         dato.cantidad = dato.cantidad + 1;
         this.cargarCarrito();
+        
         console.log("Producto agregado " + dato.nombre + "\nCategoria: " +dato.nombre);
     };
 
 }
 
 
-function cargarProductos(){
+ function cargarProductos(){
     for(let dato of datosProductos){
         if (dato.encarrito == false){
             crearElemento(dato);
@@ -82,39 +90,51 @@ function cargarProductos(){
     }
 }
 function crearCarrito(dato){
-    
-    let nuevoElementoCarrito = document.createElement("div");
+    let nuevoElementoCarrito = document.createElement("div")
     nuevoElementoCarrito.id        = PREFIJO + dato.id;
-    nuevoElementoCarrito.innerHTML = `<h3> ${dato.nombre}</h3>
-                              <h4>${dato.precio}</h4>
-                              <h5>${dato.cantidad}</h5>
-                              <button id="${dato.id}" class="btnEliminar" > Elimnar producto </button>`;
+    nuevoElementoCarrito.innerHTML = `<div class="cCarrito">
+                                        <h3 class="nombreCarrito"> ${dato.nombre} </h3>
+                                        <h4 class="precioCarrito">$${dato.precio * dato.cantidad}</h4>
+                                        <h5 class="cantidad"> cantidad: ${dato.cantidad}</h5>
+                                      </div>
+                                      <div class="cBtn">
+                                        <button id="${dato.id}" class="btnEliminar"> Elimnar producto </button>
+                                      </div>`;
 
     carrito.appendChild(nuevoElementoCarrito);
     let boton = document.getElementById(dato.id);
     boton.onclick = () => { // para que se vea el nombre del producto " comprado "
         dato.encarrito = false;
         dato.cantidad = 0;
-        console.log("Producto eliminado " + dato.nombre + "\nCategoria: " +dato.nombre);
+        console.log("Producto eliminado " + dato.nombre + "\nCategoria: " +dato.categoria);
+        this.cargarCarrito();
     };
 
 }
 function cargarCarrito(){
+    if (carrito.hasChildNodes()){
+        while (carrito.firstChild){
+            carrito.removeChild(carrito.firstChild);
+        }
+    }
     for(let dato of datosProductos){
         if (dato.encarrito == true){
-            if (carrito.hasChildNodes()){
-                var children = carrito.children;
-                console.log(children);
-                while (carrito.firstChild){
-                    //console.log(carrito.firstChild.nodeName);
-                    carrito.removeChild(carrito.firstChild);
-
-                }
-                /* for ( var i = 0, i <= children.length, i++){
-
-                } */
-            }
+           
             crearCarrito(dato);
         }
     }
 }
+
+/* DESAFIO COMPLEMENTARIO */
+
+function crearElementoEmpleado(empleado){
+    let nuevoElementoE = document.createElement("div");
+    nuevoElementoE.id        =  PREFIJOempleados + empleado.id;
+    nuevoElementoE.innerHTML = `<div class="cEmpleados">
+                                    <h3 class="empleado"> ${empleado.id}</h3>
+                                </div>
+                                <div class="puesto">${empleado.puesto}</div>`;
+
+    padreEmpleados.appendChild(nuevoElementoE);
+
+} 

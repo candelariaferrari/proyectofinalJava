@@ -41,3 +41,109 @@
     background-color: orange;
     color: white;
 }
+
+#productosCargados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    border: 1px solid orange;
+    height: 50vh;
+    width: 60vw;
+    margin-left: 15em;
+    margin-top: 3em;
+    padding: 2em;
+}
+.cCarrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(251, 176, 0);
+    padding: 15px;
+    border-radius: 15px;
+    border-radius: 2px;
+    width: fit-content;
+    height: 2em;
+    color: #Fff;
+    margin-bottom: 1em;
+
+}
+.nombreCarrito {
+    font-size: 18px;
+    padding-right: 5px;
+}
+.precioCarrito {
+    font-size: 18px;
+    color: rgb(44, 44, 44);
+    padding-right: 5px;
+
+}
+.cantidad {
+    font-size: 18px;
+    padding-right: 5px;
+}
+.cBtn {
+    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+button.btnEliminar {
+    width: 100%;
+    padding: 5px 0px;
+    background-color: transparent;
+    color: rgb(251, 176, 0);
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 15px;
+    color: 1px solid black;
+    margin-bottom: 1em;
+
+}
+button:hover.btnEliminar {
+    width: 100%;
+    padding: 5px 0px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 15px;
+    color: 1px solid rgb(251, 176, 0);
+}
+
+/* DESAFIO COMPLEMENTARIO */ 
+#contenedorEmpleados{
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cEmpleados {
+    background-color: black;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    color: white;
+    height:8em;
+    width: 8em;
+    margin-bottom: 1em;
+}
+.empleado {
+       padding-top: 1em;
+}
+.puesto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border:1px solid black;
+    border-radius: 15px;
+    padding:5px;
+}
