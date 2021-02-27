@@ -1,0 +1,58 @@
+/* boton conocernos */ 
+#cBoton{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+#cBoton button{
+        background-color: black;
+        color: white;
+        font-size: 1rem;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 1rem;
+        border-radius: 5px;
+        border: 0px solid transparent;
+        
+    }
+
+
+/* Lista persona */ 
+#contenidoGenerado {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 5rem;
+}
+.imgPerson {
+    width: 15em;
+    border-radius: 100%;
+}
+.nombrePerson {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.puestoPerson {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+}
+.linkedinPerson{
+    border: 1px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.linkedinPerson:hover{
+    background-color: black;
+    color: white;
+}
