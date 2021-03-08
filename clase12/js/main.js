@@ -1,0 +1,1 @@
+$(selector).append(content);

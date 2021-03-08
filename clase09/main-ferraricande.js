@@ -17,7 +17,7 @@ miBoton.addEventListener(eventoNombre, ()=>{
 })
 console.dir(miBoton);*/
 
- /*let  formulario = document.getElementById("pruebaFormulario");
+let  formulario = document.getElementById("pruebaFormulario");
 formulario.onsubmit = (event) => {
     event.preventDefault (); // evita el comportamiento por defecto del form de "volver a cargar la pag"
     // para enviar la info del formulario 
@@ -30,8 +30,8 @@ formulario.onsubmit = (event) => {
     console.log(dataFormulario); // para ver la info del formulario 
     /* console.log(event.target.children[0].value); // "text" en la consola me muestra los valores obtenidos
     console.log(event.target.children[1].value);// "number" en la consola me muestra los valores obtenidos
-
-} */
+*/
+} 
 class Producto{
     constructor(datosProductos){
         this.id     = datosProductos.id;
